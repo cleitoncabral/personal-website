@@ -1,0 +1,116 @@
+
+.sideProjects {
+  transition: .5s;
+  transform: translateX(-0%);
+  transition: .5s;
+  position: absolute;
+  height: 100%;
+  top: 0;
+}
+
+.sideProjects.sideProjectsActive {
+  background: rgba(19, 4, 4, 0.2);
+  backdrop-filter: blur(8px);
+  width: 100%;
+  transform: translateX(0%);
+  transition: .5s;
+}
+
+/* .sideProjects.sideProjectsActive .sideProjectsButton {
+  left: unset;
+  right: 0;
+  transition: .5;
+  transform: translateX(50%) translateY(-50%);
+} */
+
+.sideProjectsButton {
+  position: fixed;
+  left: -2px;
+  top: 50%;
+  transform: translateX(0%) translateY(-50%);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  padding: 40px 4px 40px 7px;
+  background: transparent;
+  border-radius: 0px 15px 15px 0px;
+  box-shadow: -1px 1px 12px 1px #FFFFFF;
+  border: none;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.sideProjects .sideProjectsContentBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sideProjects.sideProjectsDisabled .sideProjectsContentBox {
+  visibility: hidden;
+  transform: translateX(-100%);
+  transition: .5s;
+}
+
+.sideProjects.sideProjectsActive .sideProjectsContentBox {
+  visibility: visible;
+  transform: translateX(0%);
+  transition: .5s;
+  width: 100%;
+}
+
+.sideProjects .sideProjectsContent {
+  max-width: 1024px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.sideProjects .scroll {
+  border-right: 30px solid transparent;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding-right: 40px;
+  scroll-snap-type: mandatory;
+  scroll-snap-points-y: repeat(100vh);
+  scroll-snap-type: y mandatory;
+
+}
+
+.sideProjects .scroll::-webkit-scrollbar {
+  width: 20px;
+  height: 30px;
+}
+
+.sideProjects .scroll::-webkit-scrollbar-track {
+  width: 10px;
+  border: 2px solid #FFFFFF;
+  border-radius: 10px;
+  background: #1E1E1E;
+}
+
+.sideProjects .scroll::-webkit-scrollbar-thumb {
+  height: 30px;
+  border: 3px solid #1E1E1E;
+  background-color: #FFFFFF; 
+  border-radius: 10px;
+}
+
+.sideProjects h3 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 60px;
+  border: 2px solid #FFFFFF;
+  padding: 50px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
