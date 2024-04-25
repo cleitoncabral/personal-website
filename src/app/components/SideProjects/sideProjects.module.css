@@ -13,7 +13,7 @@
   backdrop-filter: blur(8px);
   width: 100%;
   transform: translateX(0%);
-  transition: .5s;
+  transition: .9s;
 }
 
 /* .sideProjects.sideProjectsActive .sideProjectsButton {
@@ -39,6 +39,11 @@
   cursor: pointer;
 }
 
+.sideProjectsButton:hover {
+  padding: 40px 4px 40px 15px;
+  box-shadow: -1px 1px 12px 5px #FFFFFF;
+}
+
 .sideProjects .sideProjectsContentBox {
   display: flex;
   align-items: center;
@@ -50,13 +55,13 @@
 .sideProjects.sideProjectsDisabled .sideProjectsContentBox {
   visibility: hidden;
   transform: translateX(-100%);
-  transition: .5s;
+  transition: .9s;
 }
 
 .sideProjects.sideProjectsActive .sideProjectsContentBox {
   visibility: visible;
   transform: translateX(0%);
-  transition: .5s;
+  transition: .9s;
   width: 100%;
 }
 
@@ -74,7 +79,6 @@
   scroll-snap-type: mandatory;
   scroll-snap-points-y: repeat(100vh);
   scroll-snap-type: y mandatory;
-
 }
 
 .sideProjects .scroll::-webkit-scrollbar {
