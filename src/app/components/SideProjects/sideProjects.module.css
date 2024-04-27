@@ -1,7 +1,7 @@
 
 .sideProjects {
   transition: .5s;
-  transform: translateX(-0%);
+  transform: translateX(-100%);
   transition: .5s;
   position: absolute;
   height: 100%;
@@ -117,4 +117,8 @@
   border-radius: 20px;
   scroll-snap-align: start;
   scroll-snap-stop: always;
+}
+
+.sideProjects img {
+  border-radius: 20px;
 }
