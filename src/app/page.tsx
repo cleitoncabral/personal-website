@@ -9,8 +9,11 @@ import SideProjects from "./components/SideProjects/sideProjects"
 import Loading from "./components/Loading/loading"
 import Footer from "./components/Footer/footer"
 
+const configValue: string = (process.env.API as string);
+
+
 export default function Home() {
-  const { data, error, isLoading } = useSWR('http://localhost:3000/api/personal-info', async (url) => {
+  const { data, error, isLoading } = useSWR(configValue, async (url) => {
     const res = await fetch('http://localhost:3000/api/personal-info')
     const data: Array<PersonalInfo> | undefined= await res.json()
     
