@@ -16,16 +16,16 @@
   transition: .9s;
 }
 
-/* .sideProjects.sideProjectsActive .sideProjectsButton {
-  left: unset;
-  right: 0;
+.sideProjects.sideProjectsActive .sideProjectsButton {
+  left: -25px;
+  right: unset;
   transition: .5;
   transform: translateX(50%) translateY(-50%);
-} */
+}
 
 .sideProjectsButton {
   position: fixed;
-  left: -2px;
+  right: -39px;
   top: 50%;
   transform: translateX(0%) translateY(-50%);
   writing-mode: vertical-rl;
@@ -106,13 +106,19 @@
   margin-bottom: 40px;
 }
 
+.sideProjectsContent p {
+  font-size: 18px;
+  line-height: 20px;
+  margin: 10px 0px;
+}
+
 .content {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 60px;
-  border: 2px solid #FFFFFF;
-  padding: 50px;
+  border: 1px solid #b9b6b6;
+  padding: 40px;
   margin-bottom: 20px;
   border-radius: 20px;
   scroll-snap-align: start;
@@ -121,4 +127,10 @@
 
 .sideProjects img {
   border-radius: 20px;
+}
+
+.iconGithub:hover {
+  color: #139451;
+  cursor: pointer;
+  margin: 0 auto;
 }

@@ -7,6 +7,7 @@ import { Source_Code_Pro } from 'next/font/google'
 import styles from './page.module.css'
 import SideProjects from "./components/SideProjects/sideProjects"
 import Loading from "./components/Loading/loading"
+import Footer from "./components/Footer/footer"
 
 export default function Home() {
   const { data, error, isLoading } = useSWR('http://localhost:3000/api/personal-info', async (url) => {
@@ -23,6 +24,7 @@ export default function Home() {
       <section className={styles.body}>
         <PersonalExperience data={data[0]} />
         <HardSkills data={data[0]} />
+        <Footer />
       </section>
       <SideProjects data={data[0]} />
     </main>

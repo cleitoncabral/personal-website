@@ -5,8 +5,9 @@ export type Info = {
 }
 export type Project = {
   title: String,
-  description: string,
-  image: HTMLImageElement
+  description: TrustedHTML | string,
+  image: HTMLImageElement,
+  repoURL: string
 }
 
 export type PersonalInfo = {
