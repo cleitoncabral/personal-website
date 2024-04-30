@@ -11,6 +11,11 @@ const nextConfig = {
       hostname: "i.ibb.co",
     },
     ],
+  },
+  reactStrictMode: true,
+  env: {
+    API: process.env.API,
+    PHOTO_DELETE: process.env.PHOTO_DELETE
   }
 };
 
