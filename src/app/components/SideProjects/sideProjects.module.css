@@ -134,3 +134,32 @@
   cursor: pointer;
   margin: 0 auto;
 }
+
+@media (max-width: 1024px) {
+  .sideProjects .sideProjectsContentBox .content {
+    flex-direction: column;
+  }
+
+  .sideProjects .scroll {
+    padding-right: 10px;
+    border-right: 10px solid transparent;
+    padding-left: 20px;
+  }
+
+  .sideProjects h3 {
+    background-color: rgba(19, 148, 81, 0.76);
+    padding: 0 5px;
+  }
+
+  .sideProjects.sideProjectsActive .sideProjectsButton {
+    top: 5.5%;
+    left: 5.5%;
+    writing-mode: unset;
+    transform: none;
+    text-orientation: unset;
+    padding: 10px 20px;
+    border-radius: 15px;
+    box-shadow: none;
+    border: 1px solid #b9b6b6;
+  }
+}

@@ -6,3 +6,9 @@
 .experience {
   margin-top: 15px;
 }
+
+.personalExperience {
+  max-width: 100%;
+  width: 100%;
+  padding-left: 13%;
+}

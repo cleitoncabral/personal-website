@@ -4,7 +4,7 @@ import styles from './personalExperience.module.css'
 
 export default function PersonalExperience({data}: {data: PersonalInfo}) {
   return (
-    <section>
+    <section className={styles.personalExperience}>
       <div>
         <Image src={data.avatar_image} width={200} height={200} alt='Avatar' />
         <h1>{data.name}</h1>

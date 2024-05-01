@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import styles from './sideProjects.module.css'
-import ImageTest from '../../../../public/img-test.svg'
 import Image from 'next/image'
 import { PersonalInfo } from '../../../../types/PersonalInfo'
 import { FaGithub } from "react-icons/fa";
@@ -12,8 +11,7 @@ export default function SideProjects({data}: {data: PersonalInfo}) {
   }
   return (
     <section className={`${styles.sideProjects} ${isActive ? styles.sideProjectsActive : styles.sideProjectsDisabled}`}>
-      <button onClick={() => setActive(!isActive)} className={styles.sideProjectsButton}>{isActive ? "Início" : "Side-Projects"}</button>
-
+      <button onClick={() => setActive(!isActive)} className={styles.sideProjectsButton}>{isActive ? ( screen.availWidth < 1024 ? "X" : "Início") : "Side-Projects"}</button>
       <div className={`${styles.sideProjectsContentBox}`}>
         <h3>Projetos pessoais</h3>
         <div className={`${styles.scroll}`}>

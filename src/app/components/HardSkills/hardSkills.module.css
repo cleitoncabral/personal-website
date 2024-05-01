@@ -27,3 +27,10 @@
 .paragraph {
   margin-top: 20px;
 }
+
+@media (max-width: 1024px) {
+  .hardSkills {
+    max-width: 100%;
+    padding-left: 13%;
+  }
+}

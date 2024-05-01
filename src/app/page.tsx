@@ -11,10 +11,9 @@ import Footer from "./components/Footer/footer"
 
 
 export default function Home() {
-  const key = process.env.API
-  console.log(key)
-  const { data, error, isLoading } = useSWR(process.env.API_KEY, async (url) => {
-    const res = await fetch('http://localhost:3000/api/personal-info')
+  const key = process.env["API"]
+  const { data, error, isLoading } = useSWR(key, async (url) => {
+    const res = await fetch(key)
     const data: Array<PersonalInfo> | undefined= await res.json()
     
     return data
