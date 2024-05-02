@@ -21,7 +21,7 @@ export default function SideProjects({data}: {data: PersonalInfo}) {
                 return (
                   <div key={index} className={`${styles.content}`}>
                     {item.image && 
-                    <Image src={item.image} width={400} height={200} alt='Página inicial do projeto' />}
+                    <Image className={styles.image} src={item.image} width={400} height={200} alt='Página inicial do projeto' />}
                     <div>
                       <h5>{item.title}</h5>
                       <p dangerouslySetInnerHTML={createMarkup(item.description)}></p>

@@ -152,7 +152,7 @@
   }
 
   .sideProjects.sideProjectsActive .sideProjectsButton {
-    top: 5.5%;
+    top: 7.8%;
     left: 5.5%;
     writing-mode: unset;
     transform: none;
@@ -161,5 +161,11 @@
     border-radius: 15px;
     box-shadow: none;
     border: 1px solid #b9b6b6;
+  }
+
+  .sideProjects .image {
+    max-width: 100%;
+    height: 180px;
+    object-fit: cover;
   }
 }
