@@ -11,11 +11,11 @@ import Footer from "./components/Footer/footer"
 
 
 export default function Home() {
-  const key = process.env["API"]
+  const key = process.env["API"] + 'api/personal-info'
   const { data, error, isLoading } = useSWR(key, async (url) => {
     const res = await fetch(key)
     const data: Array<PersonalInfo> | undefined= await res.json()
-    
+    console.log(data)
     return data
   })
 

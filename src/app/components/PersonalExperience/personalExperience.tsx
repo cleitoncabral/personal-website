@@ -1,12 +1,12 @@
 import Image from "next/image";
 import { PersonalInfo } from "../../../../types/PersonalInfo";
-import styles from './personalExperience.module.css'
+import styles from './personalExperience.module.css';
 
 export default function PersonalExperience({data}: {data: PersonalInfo}) {
   return (
     <section className={styles.personalExperience}>
       <div>
-        <Image src={data.avatar_image} width={200} height={200} alt='Avatar' />
+        <Image src={data.avatar_image} width={200} height={200} alt='Avatar' priority={true} />
         <h1>{data.name}</h1>
         {
           data.description.map((item, index) => {
@@ -14,9 +14,9 @@ export default function PersonalExperience({data}: {data: PersonalInfo}) {
           })
         }
       </div>
+
       <div>
         <h2 className={styles.title}>Experiência</h2>
-
         {
           data.experience.map((item, index) => {
             return (

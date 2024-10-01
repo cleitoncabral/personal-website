@@ -3,6 +3,7 @@ import styles from './sideProjects.module.css'
 import Image from 'next/image'
 import { PersonalInfo } from '../../../../types/PersonalInfo'
 import { FaGithub } from "react-icons/fa";
+import Link from 'next/link';
 
 export default function SideProjects({data}: {data: PersonalInfo}) {
   let [isActive, setActive] = useState(false)
@@ -19,15 +20,14 @@ export default function SideProjects({data}: {data: PersonalInfo}) {
             {
               data.projects.map((item, index) => {
                 return (
-                  <div key={index} className={`${styles.content}`}>
+                  <Link href={`/project/${item.id}`}key={index} className={`${styles.content}`}>
                     {item.image && 
-                    <Image className={styles.image} src={item.image} width={400} height={200} alt='Página inicial do projeto' />}
+                    <Image className={styles.image} src={item.image[0]} width={400} height={200} alt='Página inicial do projeto' />}
                     <div>
                       <h5>{item.title}</h5>
                       <p dangerouslySetInnerHTML={createMarkup(item.description)}></p>
-                      <a target='_blank' href={item.repoURL}><FaGithub className={styles.iconGithub} size='25px' /></a>
                     </div>
-                  </div>
+                  </Link>
                 )
               })
             }

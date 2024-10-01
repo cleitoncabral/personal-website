@@ -2,39 +2,35 @@ import { ObjectId } from "mongodb";
 import mongoose from "mongoose";
 const {Schema} = mongoose
 
-const PersonalDataSchema = new Schema (
+const ProjectsDataSchema = new Schema (
   {
-    name: {
-      type: String,
-      required: true
-    },
-    experience: {
-      type: Array,
-      required: true
-    },
     description: {
-      type: Array,
-      required: true
-    },
-    avatar_image: {
       type: String,
       required: true
     },
-    hardSkills: {
+    image: {
       type: Array,
       required: true
     },
-    projects: [{
+    repoURL: {
+      type: String,
+      required: true
+    },
+    title: {
+      type: String,
+      required: true
+    },
+    user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'projects'
-    }]
+      ref: 'PersonalInfo'
+    }
   },
   {
     timestamps: true,
   }
 )
 
-PersonalDataSchema.set('toJSON', {
+ProjectsDataSchema.set('toJSON', {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id.toString()
     delete returnedObject._id
@@ -43,4 +39,4 @@ PersonalDataSchema.set('toJSON', {
   }
 })
 
-export default mongoose.models.PersonalInfo || mongoose.model('PersonalInfo', PersonalDataSchema)
+export default mongoose.models.projects || mongoose.model('projects', ProjectsDataSchema)
