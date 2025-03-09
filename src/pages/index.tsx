@@ -1,13 +1,13 @@
 'use client'
 import useSWR from "swr"
 import { PersonalInfo } from "../../types/PersonalInfo"
-import PersonalExperience from "./components/PersonalExperience/personalExperience"
-import HardSkills from "./components/HardSkills/hardSkills"
+import HardSkills from "src/components/HardSkills/HardSkills"
 import { Source_Code_Pro } from 'next/font/google'
-import styles from './page.module.css'
-import SideProjects from "./components/SideProjects/sideProjects"
-import Loading from "./components/Loading/loading"
-import Footer from "./components/Footer/footer"
+import '../styles/page.css'
+import SideProjects from "src/components/SideProjects/sideProjects"
+import Loading from "src/components/Loading/Loading"
+import Footer from "src/components/Footer/Footer"
+import PersonalExperience from "src/components/PersonalExperience/PersonalExperience"
 
 
 export default function Home() {
@@ -15,15 +15,15 @@ export default function Home() {
   const { data, error, isLoading } = useSWR(key, async (url) => {
     const res = await fetch(key)
     const data: Array<PersonalInfo> | undefined= await res.json()
-    console.log(data)
+    
     return data
   })
 
   if (error) return <div>falhou em carregar</div>
   if (isLoading) return <Loading />
   if (data) return (
-    <main className={styles.main}>
-      <section className={styles.body}>
+    <main className='main'>
+      <section className='main-content'>
         <PersonalExperience data={data[0]} />
         <HardSkills data={data[0]} />
         <Footer />

@@ -3,6 +3,7 @@ export type Info = {
   description: String,
   date_time: String
 }
+
 export type Project = {
   title: String,
   description: TrustedHTML | string,

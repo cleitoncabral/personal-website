@@ -1,4 +1,3 @@
-import { ObjectId } from "mongodb";
 import mongoose from "mongoose";
 const {Schema} = mongoose
 
@@ -26,7 +25,7 @@ const PersonalDataSchema = new Schema (
     },
     projects: [{
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'projects'
+      ref: 'Project'
     }]
   },
   {

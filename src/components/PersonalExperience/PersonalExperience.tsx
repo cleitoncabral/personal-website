@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { PersonalInfo } from "../../../../types/PersonalInfo";
+import { PersonalInfo } from "../../../types/PersonalInfo";
 import styles from './personalExperience.module.css';
 
 export default function PersonalExperience({data}: {data: PersonalInfo}) {

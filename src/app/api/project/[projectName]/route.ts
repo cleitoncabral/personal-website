@@ -1,20 +1,20 @@
 import { NextResponse } from "next/server"
-import ProjectsDataSchema from "../../../../../models/projects"
+import Project from "../../../../../models/project"
 import connectToDB from "../../../../../mongodb"
-require('../../../../../models/projects')
+import mongoose from "mongoose"
 
 interface getRequest extends Request {
-  params: Request,
-  projectName: String
+  params: {
+    projectName: string; 
+  };
 }
 
 export async function GET(req: Request, context: getRequest) {
-  const { params } = context
-  console.log('param: ' + params.projectName)
+  const { projectName } = context.params
   try {
     await connectToDB()
-    const data = await ProjectsDataSchema.findById(params.projectName)
-
+    
+    const data = await Project.findById(projectName);
     return new NextResponse(JSON.stringify(data), {status: 200})
   } catch (error) {
     return new NextResponse("error" + error, {status: 500})

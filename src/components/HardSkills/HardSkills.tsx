@@ -1,4 +1,4 @@
-import { PersonalInfo } from "../../../../types/PersonalInfo";
+import { PersonalInfo } from "../../../types/PersonalInfo";
 import styles from './hardSkills.module.css'
 
 export default function HardSkills ({data}: {data: PersonalInfo}){

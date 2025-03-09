@@ -1,4 +1,3 @@
-import { ObjectId } from "mongodb";
 import mongoose from "mongoose";
 const {Schema} = mongoose
 
@@ -39,4 +38,4 @@ ProjectsDataSchema.set('toJSON', {
   }
 })
 
-export default mongoose.models.projects || mongoose.model('projects', ProjectsDataSchema)
+export default mongoose.models.Project || mongoose.model('Project', ProjectsDataSchema)

@@ -1,15 +1,17 @@
 import { useState } from 'react'
 import styles from './sideProjects.module.css'
 import Image from 'next/image'
-import { PersonalInfo } from '../../../../types/PersonalInfo'
+import { PersonalInfo } from '../../../types/PersonalInfo'
 import { FaGithub } from "react-icons/fa";
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export default function SideProjects({data}: {data: PersonalInfo}) {
   let [isActive, setActive] = useState(false)
   function createMarkup(html: string | TrustedHTML) {
     return {__html: html};
   }
+
   return (
     <section className={`${styles.sideProjects} ${isActive ? styles.sideProjectsActive : styles.sideProjectsDisabled}`}>
       <button onClick={() => setActive(!isActive)} className={styles.sideProjectsButton}>{isActive ? ( screen.availWidth < 1024 ? "X" : "Início") : "Side-Projects"}</button>
