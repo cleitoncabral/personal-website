@@ -3,6 +3,7 @@ import { Source_Code_Pro } from "next/font/google";
 import "../styles/globals.css";
 import "../styles/page.css";
 import { AppProps } from "next/app";
+import Footer from "src/components/Footer/Footer";
 
 const source_code_pro = Source_Code_Pro({
   subsets: ['latin'],
@@ -18,6 +19,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <main className={source_code_pro.className}>
       <Component {...pageProps} />
+
+      <Footer />
     </main>
   );
 }

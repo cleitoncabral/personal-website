@@ -96,6 +96,12 @@ a {
   text-decoration: none;
 }
 
+.container {
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
