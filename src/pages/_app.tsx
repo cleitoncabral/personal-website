@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <main className={source_code_pro.className}>
-      <Component {...pageProps} />
+      <Component className='main' {...pageProps} />
 
       <Footer />
     </main>

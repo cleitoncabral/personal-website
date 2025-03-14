@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './sideProjects.module.css'
 import Image from 'next/image'
 import { PersonalInfo } from '../../../types/PersonalInfo'
@@ -7,14 +7,37 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 export default function SideProjects({data}: {data: PersonalInfo}) {
+  const router = useRouter();
   let [isActive, setActive] = useState(false)
+
   function createMarkup(html: string | TrustedHTML) {
     return {__html: html};
   }
 
+  const setConfig = () => {
+    setActive(!isActive);
+    isActive ? router.replace("/", undefined, { shallow: true }) 
+    :
+    router.push(
+      {
+        pathname: router.pathname,
+        query: { ...router.query, sideProjects: "all" }
+      },
+      undefined,
+      {shallow: true}
+    ) 
+  }
+
+  const { sideProjects } = router.query
+
+  useEffect(() => {
+    sideProjects && setActive(true)
+  }, [sideProjects])
+
+
   return (
     <section className={`${styles.sideProjects} ${isActive ? styles.sideProjectsActive : styles.sideProjectsDisabled}`}>
-      <button onClick={() => setActive(!isActive)} className={styles.sideProjectsButton}>{isActive ? ( screen.availWidth < 1024 ? "X" : "Início") : "Side-Projects"}</button>
+      <button onClick={setConfig} className={styles.sideProjectsButton}>{isActive ? ( screen.availWidth < 1024 ? "X" : "Início") : "Side-Projects"}</button>
       <div className={`${styles.sideProjectsContentBox}`}>
         <h3>Projetos pessoais</h3>
         <div className={`${styles.scroll}`}>

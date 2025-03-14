@@ -26,7 +26,6 @@ export default function Home() {
       <section className='main-content'>
         <PersonalExperience data={data[0]} />
         <HardSkills data={data[0]} />
-        <Footer />
       </section>
       <SideProjects data={data[0]} />
     </main>
