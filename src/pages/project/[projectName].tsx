@@ -11,7 +11,7 @@ function createMarkup(html: string | TrustedHTML) {
   return {__html: html};
 }
 
-export default function Page({ data }: { data: Project }){
+const Page = ({ data }: { data: Project }) => {
   const router = useRouter();
 
   const handleBack = () => {
@@ -42,3 +42,5 @@ export const getServerSideProps: GetServerSideProps = async (context: GetServerS
     props: { data },
   };
 }
+
+export default Page;
