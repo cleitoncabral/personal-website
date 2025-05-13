@@ -2,24 +2,24 @@
 import useSWR from "swr"
 import { PersonalInfo } from "../../types/PersonalInfo"
 import HardSkills from "src/components/HardSkills/HardSkills"
-import { Source_Code_Pro } from 'next/font/google'
+import { useTranslation } from 'next-i18next'
 import '../styles/page.css'
 import SideProjects from "src/components/SideProjects/sideProjects"
 import Loading from "src/components/Loading/Loading"
-import Footer from "src/components/Footer/Footer"
 import PersonalExperience from "src/components/PersonalExperience/PersonalExperience"
-
+import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 
 export default function Home() {
-  const key = process.env["API"] + 'api/personal-info'
+  const key = process.env["NEXT_PUBLIC_API"] + 'api/personal-info'
   const { data, error, isLoading } = useSWR(key, async (url) => {
-    const res = await fetch(key)
-    const data: Array<PersonalInfo> | undefined= await res.json()
-    
+    const res = await fetch(url)
+    const data: Array<PersonalInfo> | undefined = await res.json()
     return data
   })
 
-  if (error) return <div>falhou em carregar</div>
+  const { t } = useTranslation('common')
+
+  if (error) return <div>{t('error_loading')}</div>
   if (isLoading) return <Loading />
   if (data) return (
     <main className='main'>
@@ -30,4 +30,12 @@ export default function Home() {
       <SideProjects data={data[0]} />
     </main>
   )
+}
+
+export async function getStaticProps({ locale }: { locale: string }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
 }

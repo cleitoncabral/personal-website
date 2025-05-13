@@ -4,6 +4,7 @@ import "../styles/globals.css";
 import "../styles/page.css";
 import { AppProps } from "next/app";
 import Footer from "src/components/Footer/Footer";
+import { appWithTranslation } from "next-i18next";
 
 const source_code_pro = Source_Code_Pro({
   subsets: ['latin'],
@@ -25,4 +26,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);

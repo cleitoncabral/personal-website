@@ -5,7 +5,7 @@ interface getRequest extends Request {
 }
 
 async function GET (params: string) {
-  const key = process.env["API"] + 'api/project/' + params
+  const key = process.env["NEXT_PUBLIC_API"] + 'api/project/' + params
   const res = await fetch(key);
   const data = await res.json();
   

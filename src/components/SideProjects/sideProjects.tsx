@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react'
 import styles from './sideProjects.module.css'
 import Image from 'next/image'
 import { PersonalInfo } from '../../../types/PersonalInfo'
-import { FaGithub } from "react-icons/fa";
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useTranslation } from 'react-i18next';
 
 export default function SideProjects({data}: {data: PersonalInfo}) {
+  const { t } = useTranslation("common");
   const router = useRouter();
   let [isActive, setActive] = useState(false)
 
@@ -37,9 +38,9 @@ export default function SideProjects({data}: {data: PersonalInfo}) {
 
   return (
     <section className={`${styles.sideProjects} ${isActive ? styles.sideProjectsActive : styles.sideProjectsDisabled}`}>
-      <button onClick={setConfig} className={styles.sideProjectsButton}>{isActive ? ( screen.availWidth < 1024 ? "X" : "Início") : "Side-Projects"}</button>
+      <button onClick={setConfig} className={styles.sideProjectsButton}>{isActive ? ( screen.availWidth < 1024 ? "X" : t('home')) : "Side-Projects"}</button>
       <div className={`${styles.sideProjectsContentBox}`}>
-        <h3>Projetos pessoais</h3>
+        <h3>{t('personal_projects')}</h3>
         <div className={`${styles.scroll}`}>
           <div className={`${styles.sideProjectsContent}`}>
             {
