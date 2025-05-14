@@ -32,6 +32,8 @@ export default function Home() {
   )
 }
 
+// teste
+
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {
