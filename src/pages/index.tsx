@@ -32,7 +32,7 @@ export default function Home() {
   )
 }
 
-// teste
+// testee
 
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
