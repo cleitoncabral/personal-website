@@ -20,3 +20,10 @@ export type PersonalInfo = {
   hard_skills: Array<String>,
   projects: Array<Project>
 }
+
+export type NewProject = {
+  title: String,
+  description: TrustedHTML | string,
+  image: string,
+  repoURL: string,
+}

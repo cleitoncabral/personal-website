@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server"
 import Project from "../../../../../models/project"
 import connectToDB from "../../../../../mongodb"
-import mongoose from "mongoose"
 
 interface getRequest extends Request {
   params: {

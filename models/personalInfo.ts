@@ -29,7 +29,7 @@ const PersonalDataSchema = new Schema (
     }]
   },
   {
-    timestamps: true,
+    timestamps: false,
   }
 )
 
