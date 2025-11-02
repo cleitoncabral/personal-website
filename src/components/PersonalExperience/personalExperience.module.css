@@ -12,3 +12,11 @@
   width: 100%;
   padding-left: 13%;
 }
+
+.personalInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}

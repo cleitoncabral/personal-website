@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Source_Code_Pro } from "next/font/google";
-import "../styles/globals.css";
-import "../styles/page.css";
+import "./globals.css";
+import "./page.css";
 import { AppProps } from "next/app";
 import Footer from "src/components/Footer/Footer";
 import { appWithTranslation } from "next-i18next";
@@ -13,7 +13,7 @@ const source_code_pro = Source_Code_Pro({
 
 export const metadata: Metadata = {
   title: "Cleiton Cabral",
-  description: "Personal Website",
+  description: "Personal Website of a front-end developer",
 };
 
 function MyApp({ Component, pageProps }: AppProps) {

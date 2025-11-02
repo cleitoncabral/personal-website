@@ -1,29 +1,29 @@
 export type Info = {
-  title: String,
-  description: String,
-  date_time: String
+  title: string;
+  description: string;
+  date_time: string;
 }
 
 export type Project = {
-  title: String,
-  description: TrustedHTML | string,
-  image: Array<HTMLImageElement>,
-  repoURL: string,
-  id: string
+  id: string;
+  title: string;
+  description: string;
+  image: string[];
+  repoURL: string;
 }
 
 export type PersonalInfo = {
-  name: String, 
-  description: Array<String>,
-  experience: Array<Info>,
-  avatar_image: HTMLImageElement,
-  hard_skills: Array<String>,
-  projects: Array<Project>
+  name: string;
+  description: string[];
+  experience: Info[];
+  avatar_image: string;
+  hard_skills: string[];
+  projects: Project[];
 }
 
 export type NewProject = {
-  title: String,
-  description: TrustedHTML | string,
-  image: string,
-  repoURL: string,
+  title: string;
+  description: string;
+  image: string;
+  repoURL: string;
 }
