@@ -100,11 +100,12 @@ a {
   max-width: 1024px;
   width: 100%;
   margin: 0 auto;
+  padding: 20px;
 }
 
 .page-container {
   width: 100%;
-  padding: 2rem 1rem;
+  padding: 1rem;
   min-height: 90vh;
 }
 

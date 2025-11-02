@@ -10,7 +10,10 @@
 .personalExperience {
   max-width: 100%;
   width: 100%;
-  padding-left: 13%;
+
+  .avatar {
+    margin-bottom: 10px;
+  }
 }
 
 .personalInfo {

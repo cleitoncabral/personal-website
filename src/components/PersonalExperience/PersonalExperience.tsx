@@ -17,6 +17,7 @@ export default function PersonalExperience({data}: {data: PersonalInfo}) {
           height={200} 
           alt={`${data?.name || 'User'} avatar`} 
           priority={true} 
+          className={styles.avatar}
         />
         <h1>{data?.name || 'Nome não disponível'}</h1>
         {
