@@ -60,11 +60,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const data = await getPersonalData();
   const projects = data[0]?.projects || []
 
-  // Gera paths com slugs amigáveis (apenas título, sem ID)
+  // Gera paths usando o slug do banco de dados
   const paths = projects
-    .filter(project => project.title)
+    .filter(project => project.slug || project.title)
     .flatMap((project) => {
-      const slug = createProjectSlug(project.title);
+      // Usa slug do banco, ou gera do título como fallback
+      const slug = project.slug || createProjectSlug(project.title);
       return [
         { params: { projectName: slug }, locale: 'pt' },
         { params: { projectName: slug }, locale: 'en' },

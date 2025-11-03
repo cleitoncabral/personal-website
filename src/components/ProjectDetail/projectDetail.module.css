@@ -1,0 +1,184 @@
+/* Container principal */
+.detailContainer {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Botão voltar */
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  background: transparent;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  position: absolute;
+  top: 20px;
+}
+
+.backButton:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  transform: translateX(-5px);
+}
+
+.backButton svg {
+  font-size: 1rem;
+}
+
+/* Container da imagem */
+.imageContainer {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.projectImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Conteúdo do projeto */
+.projectContent {
+  padding: 0 1rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.description {
+  color: #d0d0d0;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.description p {
+  margin-bottom: 1rem;
+}
+
+.description ul,
+.description ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.description li {
+  margin-bottom: 0.5rem;
+}
+
+.description a {
+  color: #4a9eff;
+  text-decoration: underline;
+}
+
+.description a:hover {
+  color: #6bb3ff;
+}
+
+.description h1,
+.description h2,
+.description h3 {
+  color: #fff;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Botão do repositório */
+.repoButton {
+  display: inline-block;
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.repoButton:hover {
+  transform: translateY(-2px);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .detailContainer {
+    padding: 0 0.5rem;
+  }
+
+  .backButton {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .imageContainer {
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+  }
+
+  .projectContent {
+    padding: 0 0.5rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .description {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .repoButton {
+    width: 100%;
+    text-align: center;
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .backButton {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+}

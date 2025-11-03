@@ -7,6 +7,7 @@ export type Info = {
 export type Project = {
   id: string;
   title: string;
+  slug?: string; // Slug gerado automaticamente pelo backend
   description: string;
   image: string[];
   repoURL: string;

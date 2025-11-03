@@ -16,6 +16,7 @@ export async function getPersonalData(): Promise<PersonalInfo[]> {
       .populate('projects', {
         _id: 1, // Importante: inclui o _id
         title: 1,
+        slug: 1, // Inclui o slug para URLs amigáveis
         description: 1,
         image: 1,
         repoURL: 1,

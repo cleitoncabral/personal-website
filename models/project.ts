@@ -1,6 +1,21 @@
 import mongoose from "mongoose";
 const {Schema} = mongoose
 
+// Função para gerar slug a partir do título
+function generateSlug(title: string): string {
+  return title
+    .toString()
+    .toLowerCase()
+    .trim()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/--+/g, '-')
+    .replace(/^-+/, '')
+    .replace(/-+$/, '');
+}
+
 const ProjectsDataSchema = new Schema (
   {
     description: {
@@ -19,6 +34,11 @@ const ProjectsDataSchema = new Schema (
       type: String,
       required: true
     },
+    slug: {
+      type: String,
+      unique: true,
+      index: true,
+    },
     user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'PersonalInfo'
@@ -28,6 +48,14 @@ const ProjectsDataSchema = new Schema (
     timestamps: false,
   }
 )
+
+// Gera slug automaticamente antes de salvar
+ProjectsDataSchema.pre('save', function(next) {
+  if (this.isModified('title') || !this.slug) {
+    this.slug = generateSlug(this.title);
+  }
+  next();
+});
 
 ProjectsDataSchema.set('toJSON', {
   transform: (document, returnedObject) => {

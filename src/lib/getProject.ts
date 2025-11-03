@@ -1,32 +1,25 @@
 import connectToDB from '../../mongodb';
 import Project from '../../models/project';
 import { Project as ProjectType } from 'types/PersonalInfo';
-import { slugify } from '../utils/slugify';
 
 /**
  * Busca um projeto específico diretamente do MongoDB
- * Pode buscar por ID ou por título (slug)
+ * Busca por slug (rápido com índice) ou por ID
  */
-export async function getProject(projectIdOrSlug: string): Promise<ProjectType | null> {
+export async function getProject(slugOrId: string): Promise<ProjectType | null> {
   try {
     await connectToDB();
     
     let data;
     
-    // Tenta buscar por ID primeiro (se tiver 24 caracteres)
-    if (projectIdOrSlug.length === 24) {
-      data = await Project.findById(projectIdOrSlug).lean().exec();
+    // Tenta buscar por ID primeiro (se tiver 24 caracteres - ObjectId)
+    if (slugOrId.length === 24 && /^[0-9a-fA-F]{24}$/.test(slugOrId)) {
+      data = await Project.findById(slugOrId).lean().exec();
     }
     
-    // Se não encontrou por ID, busca por título usando slug
+    // Se não encontrou por ID, busca por slug (RÁPIDO - usa índice)
     if (!data) {
-      const allProjects = await Project.find({}).lean().exec();
-      
-      // Procura pelo projeto cujo título gera o mesmo slug
-      data = allProjects.find((project: any) => {
-        const projectSlug = slugify(project.title);
-        return projectSlug === projectIdOrSlug;
-      });
+      data = await Project.findOne({ slug: slugOrId }).lean().exec();
     }
 
     if (!data) {

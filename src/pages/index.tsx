@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { PersonalInfo } from "../../types/PersonalInfo"
+import { PersonalInfo, Project } from "../../types/PersonalInfo"
 import HardSkills from "src/components/HardSkills/HardSkills"
 import { useTranslation } from 'next-i18next'
 import PersonalExperience from "src/components/PersonalExperience/PersonalExperience"
 import Projects from "src/components/Projects/Projects"
+import ProjectDetail from "src/components/ProjectDetail/ProjectDetail"
 import Tabs from "src/components/Tabs/Tabs"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { GetStaticProps } from "next"
@@ -16,6 +17,15 @@ type HomeProps = {
 export default function Home({ data }: HomeProps) {
   const { t } = useTranslation('common')
   const [activeTab, setActiveTab] = useState('about');
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  const handleProjectClick = (project: Project) => {
+    setSelectedProject(project);
+  };
+
+  const handleBackToList = () => {
+    setSelectedProject(null);
+  };
 
   const tabs = [
     {
@@ -33,7 +43,11 @@ export default function Home({ data }: HomeProps) {
     {
       id: 'projects',
       label: t('personal_projects') || 'Projetos',
-      content: <Projects data={data} />
+      content: selectedProject ? (
+        <ProjectDetail project={selectedProject} onBack={handleBackToList} />
+      ) : (
+        <Projects data={data} onProjectClick={handleProjectClick} />
+      )
     }
   ];
 

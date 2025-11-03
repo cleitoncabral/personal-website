@@ -2,6 +2,7 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
 }
 
 .tabsHeader {
@@ -37,7 +38,6 @@
 
 .tabContent {
   padding: 1rem 0;
-  position: relative;
 }
 
 .tabContent.right {

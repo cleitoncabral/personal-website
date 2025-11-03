@@ -1,11 +1,14 @@
 import Image from 'next/image';
-import Link from 'next/link';
-import { PersonalInfo } from '../../../types/PersonalInfo';
+import { PersonalInfo, Project } from '../../../types/PersonalInfo';
 import { createSafeMarkup } from '../../utils/sanitize';
-import { createProjectSlug } from '../../utils/slugify';
 import styles from './projects.module.css';
 
-export default function Projects({ data }: { data: PersonalInfo }) {
+type ProjectsProps = {
+  data: PersonalInfo;
+  onProjectClick: (project: Project) => void;
+}
+
+export default function Projects({ data, onProjectClick }: ProjectsProps) {
   
   return (
     <div className={styles.projectsGrid}>
@@ -15,11 +18,19 @@ export default function Projects({ data }: { data: PersonalInfo }) {
           ? String(item.image[0])
           : '/placeholder-project.png';
 
-        // Cria slug amigável apenas com o título: "nome-do-projeto"
-        const projectSlug = createProjectSlug(item.title);
-
         return (
-          <Link href={`/project/${projectSlug}`} key={index} className={styles.projectCard}>
+          <div 
+            key={index} 
+            className={styles.projectCard}
+            onClick={() => onProjectClick(item)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                onProjectClick(item);
+              }
+            }}
+          >
             <Image
               className={styles.projectImage}
               src={imageSrc}
@@ -34,7 +45,7 @@ export default function Projects({ data }: { data: PersonalInfo }) {
                 dangerouslySetInnerHTML={createSafeMarkup(item.description)}
               />
             </div>
-          </Link>
+          </div>
         );
       })}
     </div>
